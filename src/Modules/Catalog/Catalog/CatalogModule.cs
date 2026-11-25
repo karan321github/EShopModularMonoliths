@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
 
 namespace Catalog
 {
@@ -12,6 +13,12 @@ namespace Catalog
             // services.AddScoped<ICatalogService, CatalogService>();
             return services;
 
+        }
+
+        public static IApplicationBuilder UseCatalogModule(this IApplicationBuilder app)
+        {
+            // Configure the Catalog module middleware here
+            return app;
         }
     }
 }
